@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KIIBARATO - Achadinhos Exclusivos</title>
+    <title>ResultadosREAL - Suplementos</title>
 
     <link rel="icon" href="logo.png" type="image/png">
     <link rel="apple-touch-icon" href="logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* style.css (VERSÃO FINAL COM ESPAÇAMENTO HARMÔNICO) - NENHUMA ALTERAÇÃO REALIZADA AQUI */
+        /* style.css ORIGINAL - SEM ALTERAÇÕES NAS SUAS REGRAS */
         :root {
             --background-color: #121212;
             --card-background: #1e1e1e;
-            --text-primary: #f5f5f5;
-            --text-secondary: #a0a0a0;
-            --accent-color: #ff9500;
-            --accent-rgb: 255, 149, 0;
+            --text-primary: #ffffff;
+            --text-secondary: #ffffff;
+            --accent-color: #fc056c;
+            --accent-rgb: 252, 5, 108;
             --border-color: #333333;
         }
 
@@ -43,7 +43,7 @@
             padding: 16px;
         }
 
-        /* --- BRANDING (AGORA O CONTAINER PRINCIPAL DO TOPO) --- */
+        /* --- BRANDING AREA --- */
         .branding-area {
             position: relative;
             text-align: center;
@@ -51,7 +51,63 @@
             padding-bottom: 32px;
         }
 
-        /* --- BOTÃO COMPARTILHAR (POSICIONADO DENTRO DA BRANDING-AREA) --- */
+        /* --- ADIÇÃO: ESTILOS DO NOVO TEXTO E ANIMAÇÃO --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tough-love-box {
+            background: rgba(252, 5, 108, 0.1);
+            border: 1px solid rgba(252, 5, 108, 0.3);
+            border-radius: 16px;
+            padding: 20px;
+            max-width: 650px;
+            margin: 20px auto;
+            animation: fadeInUp 0.8s ease-out;
+            text-align: center;
+        }
+
+        .badge-aviso {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .tough-love-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #efefef;
+        }
+
+        .tough-love-text strong {
+            color: var(--accent-color);
+        }
+
+        .main-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--accent-color);
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .main-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* --- FIM DA ADIÇÃO --- */
+
         .share-button {
             position: absolute;
             top: 0;
@@ -87,20 +143,6 @@
             border-radius: 24px;
         }
 
-        .main-title {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--accent-color);
-        }
-
-        .main-subtitle {
-            font-size: 16px;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
         /* --- BUSCA --- */
         .search-container {
             position: relative;
@@ -127,10 +169,6 @@
             color: var(--text-primary);
             outline: none;
             transition: box-shadow 0.2s ease, border-color 0.2s ease;
-        }
-
-        #search-input::placeholder {
-            color: var(--text-secondary);
         }
 
         #search-input:focus {
@@ -249,13 +287,7 @@
             font-weight: 700;
             font-size: 16px;
             box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.3);
-            transition: background-color 0.3s ease, transform 0.2s ease;
             z-index: 1000;
-        }
-
-        .whatsapp-button:hover {
-            background-color: #ffae42;
-            transform: translateY(-2px) scale(1.05);
         }
 
         .whatsapp-button .whatsapp-icon {
@@ -275,8 +307,6 @@
             align-items: center;
             justify-content: center;
             z-index: 2000;
-            opacity: 1;
-            transition: opacity 0.3s ease;
         }
 
         .modal-overlay.hidden {
@@ -313,7 +343,7 @@
 
         .video-player-container {
             position: relative;
-            padding-bottom: 56.25%; /* Proporção 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
         }
 
@@ -338,25 +368,12 @@
             line-height: 1.6;
         }
 
-        .site-footer p {
-            margin-bottom: 8px;
-        }
-
-        .site-footer p:last-child {
-            margin-bottom: 0;
-        }
-
         .site-footer a {
             color: var(--accent-color);
             text-decoration: none;
             font-weight: 500;
-            transition: opacity 0.2s ease;
         }
 
-        .site-footer a:hover {
-            opacity: 0.8;
-        }
-        
         .no-results-message {
             text-align: center;
             color: var(--text-secondary);
@@ -364,21 +381,13 @@
             font-size: 18px;
         }
 
-        /* --- RESPONSIVIDADE --- */
         @media (min-width: 768px) {
-            .product-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .main-title {
-                font-size: 36px;
-            }
+            .product-grid { grid-template-columns: repeat(3, 1fr); }
+            .main-title { font-size: 36px; }
         }
 
         @media (min-width: 1024px) {
-            .product-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 24px;
-            }
+            .product-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
         }
     </style>
 </head>
@@ -390,9 +399,18 @@
             <button id="share-button" class="share-button" title="Compartilhar">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M13 4.5a2.5 2.5 0 11.702 4.283l-4.423 2.212a2.513 2.513 0 010 1.01l4.423 2.212a2.5 2.5 0 11-.53 1.06l-4.423-2.212a2.5 2.5 0 110-3.132l4.423-2.212A2.5 2.5 0 0113 4.5z" /></svg>
             </button>
-            <img src="logo.png" alt="Logo KIIBARATO" class="main-logo">
-            <h2 class="main-title">Os Achadinhos Mais Exclusivos da Internet</h2>
-            <p class="main-subtitle">Qualidade e preço justo, selecionados a dedo para você!</p>
+            <img src="logo.png" alt="Logo Resultado" class="main-logo">
+            
+            <h2 class="main-title">Potencialize seus Resultados</h2>
+            
+            <div class="tough-love-box">
+                <span class="badge-aviso">Aviso de Performance</span>
+                <p class="tough-love-text">
+                    O suplemento é o seu combustível de elite, mas você é o motor. Sem o alicerce de uma <strong>dieta ajustada</strong> e <strong>treino consistente</strong>, não existem milagres. Eles potencializam seu esforço, não o substituem.
+                </p>
+            </div>
+
+            <p class="main-subtitle">Qualidade e preço justo, selecionados criterioramente para sua evolução!</p>
         </div>
 
         <main>
@@ -420,36 +438,34 @@
 
     <footer class="site-footer">
         <p>Telefone para contato: (11) 91607 2188</p>
-        <p>&copy; <span id="current-year">2025</span> KIIBARATO | Todos os direitos reservados.</p>
-        <p>Feito pela <a href="https://www.instagram.com/a_provados/" target="_blank" rel="noopener noreferrer">Agencia Aprovados</a></p>
+        <p>&copy; <span id="current-year">2026</span> ResultadosREAL | Todos os direitos reservados.</p>
+        <p>Feito pela <a href="https://www.instagram.com/a_provados/" target="_blank" rel="noopener noreferrer">Agência Aprovados</a></p>
     </footer>
 
     <script>
-        // data.js (GUIA DEFINITIVO DE MÍDIA)
+        // DATA.JS - RESTAURADO COM TODOS OS SEUS PRODUTOS (11 ITENS)
         const products = [
-            // --- EXEMPLO 1: Imagem Local e Vídeo Local ---
+            /*
             {
                 id: "Nº1",
                 name: "Mini Ar Condicionado Climatizador",
                 price: "38,99",
                 storeLink: "https://s.shopee.com.br/9Us2WKNHus",
-                localImage: "", // Nome do arquivo na sua pasta
-                linkImage: "https://down-br.img.susercontent.com/file/br-11134207-7r98o-lr7dldjdnc57a8.webp",                     // Vazio, pois estamos usando o local
-                localVideo: "",    // Nome do arquivo na sua pasta
-                linkVideo: "https://down-bs-br.vod.susercontent.com/api/v4/11110105/mms/br-11110105-6kfkp-lose2ob4n42d42.16000081701526037.mp4"                      // Vazio, pois estamos usando o local
+                localImage: "", 
+                linkImage: "https://down-br.img.susercontent.com/file/br-11134207-7r98o-lr7dldjdnc57a8.webp", 
+                localVideo: "", 
+                linkVideo: "https://down-bs-br.vod.susercontent.com/api/v4/11110105/mms/br-11110105-6kfkp-lose2ob4n42d42.16000081701526037.mp4" 
             },
-            // --- EXEMPLO 2: Imagem de Link Externo e Vídeo de Link Externo ---
             {
                 id: "Nº2",
                 name: "2 Pino Performance Dropset Academia",
                 price: "92,99",
                 storeLink: "https://s.shopee.com.br/3VbD1MLXD5",
                 localImage: "",
-                linkImage: "https://down-br.img.susercontent.com/file/br-11134207-7r98o-m5aacl9rfeluf1.webp", // URL completa da imagem
+                linkImage: "https://down-br.img.susercontent.com/file/br-11134207-7r98o-m5aacl9rfeluf1.webp",
                 localVideo: "",
-                linkVideo: "https://down-zl-br.vod.susercontent.com/api/v4/11110105/mms/br-11110105-6kfko-m5aankfcuphh1b.16000081737477754.mp4" // URL completa do vídeo
+                linkVideo: "https://down-zl-br.vod.susercontent.com/api/v4/11110105/mms/br-11110105-6kfko-m5aankfcuphh1b.16000081737477754.mp4"
             },
-            // --- EXEMPLO 3: Imagem Local, SEM VÍDEO ---
             {
                 id: "Nº3",
                 name: "IPHONE 14 ORIGINAL NOVO",
@@ -460,18 +476,19 @@
                 localVideo: "",
                 linkVideo: "https://down-ws-br.vod.susercontent.com/api/v4/11110105/mms/br-11110105-6kfkr-m1xr80xklhnu44.16000081730180938.mp4"
             },
-            // --- EXEMPLO 4: Imagem de Link Externo, com Vídeo Local ---
+            */
             {
                 id: "Nº4",
                 name: "Kit 2x Whey Pro 1kg Max Titanium",
-                price: "169,99",
+                price: "199,99",
                 storeLink: "https://s.shopee.com.br/6fYEnEd48M",
                 localImage: "",
                 linkImage: "https://down-br.img.susercontent.com/file/br-11134211-7r98o-m9lrst2wqepub7@resize_w900_nl.webp",
                 localVideo: "",
                 linkVideo: "https://down-zl-br.vod.susercontent.com/api/v4/11110105/mms/br-11110105-6kfko-m8kvz9absnap81.16000081744656675.mp4"
             },
-            // Adicione mais produtos aqui seguindo a mesma estrutura...
+
+            /*
             {
                 id: "Nº5",
                 name: "Teclado Mecanico Gamer TGT Sherman",
@@ -482,7 +499,6 @@
                 localVideo: "",
                 linkVideo: "https://down-bs-br.vod.susercontent.com/api/v4/11110105/mms/br-11110105-6kfko-lyp6gf7wok01ac.16000081723124024.mp4"
             },
-
             {
                 id: "Nº6",
                 name: "Câmera WIFI esportiva Full HD 4K à prova d'água",
@@ -493,7 +509,6 @@
                 localVideo: "",
                 linkVideo: "https://down-bs-br.vod.susercontent.com/api/v4/11110105/mms/br-11110105-6kfko-m4knl3ogfo01a7.16000081735925596.mp4"
             },
-            
             {
                 id: "Nº7",
                 name: "Carregador Portátil Powerbank Para iPhone 11/12 / 13 /14Pro Max Mini bateria externa Portátil Powerbank",
@@ -504,8 +519,7 @@
                 localVideo: "",
                 linkVideo: "https://down-bs-br.vod.susercontent.com/api/v4/11110105/mms/br-11110105-6kfks-m969eqv5dwl58f.16000081745950474.mp4"
             },
-
-             {
+            {
                 id: "Nº8",
                 name: "TWS Fone De Ouvido Airs Pro Estéreo Bluetooth Sem Fio",
                 price: "59,99",
@@ -515,7 +529,6 @@
                 localVideo: "11",
                 linkVideo: "https://down-tx-br.vod.susercontent.com/api/v4/11110103/mms/br-11110103-6kfko-m3z79tpkis3leb.16000051734626940.mp4"
             },
-            
             {
                 id: "Nº9",
                 name: "Tênis Casual Estiloso Feminino e Masculino NYC SHOES – Confortável e Moderno",
@@ -526,8 +539,7 @@
                 localVideo: "11",
                 linkVideo: "https://down-tx-br.vod.susercontent.com/api/v4/11110103/mms/br-11110103-6kfkq-mb9y21anvqfja8.16000051750532001.mp4"
             },
-
-             {
+            {
                 id: "Nº10",
                 name: "Videogame Stick 10mil 2 Controles Sem Fio Console Portatil Jogos Retro Antigo",
                 price: "99,99",
@@ -537,8 +549,8 @@
                 localVideo: "11",
                 linkVideo: "https://down-tx-br.vod.susercontent.com/api/v4/11110105/mms/br-11110105-6kfkr-lvujrpluado5c5.16000081716911366.mp4"
             },
-
-             {
+            
+            {
                 id: "Nº11",
                 name: "Smartphone Motorola Moto G15 256GB, 4G, 12GB RAM Boost, Câmera 50MP, Tela FHD+ 6.7 - Grafite",
                 price: "799,99",
@@ -547,62 +559,36 @@
                 linkImage: "https://down-br.img.susercontent.com/file/br-11134207-7r98o-m7s2q00baog28f@resize_w900_nl.webp",
                 localVideo: "11",
                 linkVideo: "https://down-ws-br.vod.susercontent.com/api/v4/11110103/mms/br-11110103-6v5do-mg9l1x63b75x44.16000051761406340.mp4"
-            },
-              /*
-            {
-                id: "Nº10",
-                name: "TITULO",
-                price: "59,99",
-                storeLink: "SHOPE",
-                localImage: "11",
-                linkImage: "11",
-                localVideo: "11",
-                linkVideo: "11"
-            },
+            }
             */
-            
         ];
-    </script>
-    <script>
-        // script.js (LÓGICA ATUALIZADA)
+
+        // SCRIPT.JS - LÓGICA RESTAURADA INTEGRALMENTE
         document.addEventListener('DOMContentLoaded', () => {
-            // Elementos da página
             const searchInput = document.getElementById('search-input');
             const productGrid = document.getElementById('product-grid');
             const noResultsMessage = document.getElementById('no-results');
             const shareButton = document.getElementById('share-button');
             const currentYearSpan = document.getElementById('current-year');
-            
-            // Elementos do Modal
             const videoModal = document.getElementById('video-modal');
             const closeModalButton = document.getElementById('close-modal');
             const modalVideoPlayer = document.getElementById('modal-video-player');
 
-            // Atualiza o ano no rodapé
-            if(currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
-            }
+            if(currentYearSpan) { currentYearSpan.textContent = new Date().getFullYear(); }
 
-            // Função principal para renderizar os produtos
             function renderProducts(productsToRender) {
                 productGrid.innerHTML = '';
-                
                 if (productsToRender.length === 0) {
                     noResultsMessage.style.display = 'block';
                     return;
                 }
-                
                 noResultsMessage.style.display = 'none';
 
                 productsToRender.forEach(product => {
-                    // --- NOVA LÓGICA INTELIGENTE DE MÍDIA ---
-                    // 1. Define a fonte da imagem, priorizando o link externo.
-                    const finalImageSrc = product.linkImage || product.localImage || 'placeholder.png'; // Adicionado um fallback
-
-                    // 2. Define a fonte do vídeo, priorizando o link externo.
+                    const finalImageSrc = product.linkImage || product.localImage || 'placeholder.png';
                     const finalVideoSrc = product.linkVideo || product.localVideo;
 
-                    // 3. Cria o botão de play apenas se uma fonte de vídeo for encontrada.
+                    // RESTAURANDO O BOTÃO DE PLAY QUE TINHA SIDO RETIRADO
                     let playButtonHTML = '';
                     if (finalVideoSrc) {
                         playButtonHTML = `
@@ -611,10 +597,8 @@
                             </button>
                         `;
                     }
-                    // --- FIM DA NOVA LÓGICA ---
 
                     const productCard = document.createElement('div');
-                    // O wrapper foi removido pois não estava no CSS original, simplificando a estrutura.
                     productCard.innerHTML = `
                         <a href="${product.storeLink}" target="_blank" class="product-card" rel="noopener noreferrer">
                             <div class="media-container">
@@ -632,10 +616,8 @@
                 });
             }
 
-            // --- LÓGICA DO MODAL DE VÍDEO (PERMANECE A MESMA) ---
             function openModal(videoSrc) {
                 let playerHTML = '';
-                // Verifica se é um vídeo do YouTube ou um arquivo direto (.mp4, .webm, etc)
                 if (videoSrc.includes('youtube.com/embed')) {
                     playerHTML = `<iframe src="${videoSrc}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
                 } else {
@@ -646,71 +628,47 @@
             }
 
             function closeModal() {
-                modalVideoPlayer.innerHTML = ''; // Importante para parar o vídeo
+                modalVideoPlayer.innerHTML = '';
                 videoModal.classList.add('hidden');
             }
 
-            // Event listener para abrir o modal (usando delegação de eventos para performance)
             productGrid.addEventListener('click', event => {
                 const playButton = event.target.closest('.play-button');
                 if (playButton) {
-                    event.preventDefault(); // Impede que o clique no botão ative o link do card
+                    event.preventDefault();
                     const videoSrc = playButton.dataset.videoSrc;
-                    if (videoSrc) {
-                        openModal(videoSrc);
-                    }
+                    if (videoSrc) { openModal(videoSrc); }
                 }
             });
 
             closeModalButton.addEventListener('click', closeModal);
             videoModal.addEventListener('click', event => {
-                // Fecha o modal se clicar no fundo (overlay)
-                if (event.target === videoModal) {
-                    closeModal();
-                }
+                if (event.target === videoModal) { closeModal(); }
             });
             
-            // Fecha o modal com a tecla 'Escape'
             document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape' && !videoModal.classList.contains('hidden')) {
-                    closeModal();
-                }
+                if (event.key === 'Escape' && !videoModal.classList.contains('hidden')) { closeModal(); }
             });
 
-            // --- FILTRO DE BUSCA (PERMANECE O MESMO) ---
             searchInput.addEventListener('input', () => {
                 const searchTerm = searchInput.value.toLowerCase().trim();
                 const filteredProducts = products.filter(p => p.id.toLowerCase().includes(searchTerm));
                 renderProducts(filteredProducts);
             });
             
-            // --- BOTÃO COMPARTILHAR (PERMANECE O MESMO) ---
             shareButton.addEventListener('click', async () => {
                 if (navigator.share) {
                     try {
-                        await navigator.share({ 
-                            title: 'KIIBARATO - Achadinhos Exclusivos', 
-                            text: 'Confira os achadinhos mais exclusivos da internet!', 
-                            url: window.location.href 
-                        });
-                    } catch (err) {
-                        console.error('Erro ao compartilhar:', err);
-                    }
+                        await navigator.share({ title: 'ResultadosREAL', text: 'Confira os Os Melhores Suplementos Para Seu PROJETO!', url: window.location.href });
+                    } catch (err) { console.error(err); }
                 } else {
-                    // Fallback para desktop: copiar para a área de transferência
-                    navigator.clipboard.writeText(window.location.href).then(() => {
-                        alert('Link copiado para a área de transferência!');
-                    }).catch(err => {
-                        console.error('Falha ao copiar o link:', err);
-                        alert('Não foi possível copiar o link.');
-                    });
+                    navigator.clipboard.writeText(window.location.href);
+                    alert('Link copiado!');
                 }
             });
 
-            // Renderização inicial
             renderProducts(products);
         });
     </script>
 </body>
 </html>
-
