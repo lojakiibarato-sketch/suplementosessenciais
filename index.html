@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* style.css ORIGINAL - SEM ALTERAÇÕES NAS SUAS REGRAS */
+        /* style.css ORIGINAL - MANTIDO E OTIMIZADO */
         :root {
             --background-color: #121212;
             --card-background: #1e1e1e;
@@ -22,6 +22,7 @@
             --accent-color: #fc056c;
             --accent-rgb: 252, 5, 108;
             --border-color: #333333;
+            --whatsapp-green: #25D366; /* Adicionado para consistência */
         }
 
         * {
@@ -49,9 +50,12 @@
             text-align: center;
             padding-top: 16px;
             padding-bottom: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* --- ADIÇÃO: ESTILOS DO NOVO TEXTO E ANIMAÇÃO --- */
+        /* --- ESTILOS DO NOVO TEXTO E ANIMAÇÃO --- */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -106,40 +110,48 @@
             animation: fadeInUp 1s ease-out;
         }
 
-        /* --- FIM DA ADIÇÃO --- */
-
-        .share-button {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: var(--card-background);
-            border: 1px solid var(--border-color);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
+        /* --- NOVO BOTÃO WHATSAPP SHARE (HEADER) --- */
+        .header-share-wa {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-primary);
-            transition: background-color 0.2s ease, transform 0.2s ease;
+            gap: 8px;
+            background-color: rgba(37, 211, 102, 0.05);
+            border: 1px solid var(--whatsapp-green);
+            color: var(--whatsapp-green);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px; /* Espaço entre o botão e o título */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            margin-top: -8px; /* Ajuste fino em relação à logo */
         }
 
-        .share-button:hover {
-            background-color: var(--border-color);
-            transform: scale(1.1);
+        .header-share-wa:hover {
+            background-color: var(--whatsapp-green);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
         }
 
-        .share-button svg {
-            width: 20px;
-            height: 20px;
+        .header-share-wa svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
         }
+
+        /* ANTIGO .share-button REMOVIDO DAQUI */
 
         .main-logo {
             width: 220px;
             height: 220px;
             object-fit: contain;
-            margin-bottom: 16px;
+            margin-bottom: 8px; /* Reduzido levemente pois o botão vem abaixo */
             border-radius: 24px;
         }
 
@@ -271,7 +283,7 @@
             color: var(--accent-color);
         }
 
-        /* --- BOTÃO WHATSAPP --- */
+        /* --- BOTÃO WHATSAPP FIXO (CONTATO) --- */
         .whatsapp-button {
             position: fixed;
             bottom: 20px;
@@ -396,10 +408,14 @@
     <div class="container">
         
         <div class="branding-area">
-            <button id="share-button" class="share-button" title="Compartilhar">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M13 4.5a2.5 2.5 0 11.702 4.283l-4.423 2.212a2.513 2.513 0 010 1.01l4.423 2.212a2.5 2.5 0 11-.53 1.06l-4.423-2.212a2.5 2.5 0 110-3.132l4.423-2.212A2.5 2.5 0 0113 4.5z" /></svg>
-            </button>
             <img src="logo.png" alt="Logo Resultado" class="main-logo">
+            
+            <a id="header-share-wa" href="#" target="_blank" class="header-share-wa">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.001.577 1.913.842 3.143.842 3.18 0 5.767-2.586 5.767-5.766.001-3.18-2.587-5.767-5.768-5.767zm6.703 12.333l-1.455-1.009c-.141-.098-.309-.136-.474-.108-.165.028-.313.116-.418.249l-.535.674c-.139.176-.381.245-.589.175-.826-.279-2.316-1.077-3.238-2.348-.135-.187-.145-.436-.024-.634l.431-.706c.106-.174.122-.39.043-.58l-.872-2.113c-.11-.266-.379-.427-.665-.398-.285.029-.53.226-.607.505l-.237.86c-.161.583-.056 1.206.286 1.706.758 1.109 2.508 3.555 5.23 4.609.569.22 1.217.202 1.771-.048l.745-.337c.264-.119.405-.411.332-.691zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                </svg>
+                Compartilhar
+            </a>
             
             <h2 class="main-title">Potencialize seus Resultados</h2>
             
@@ -568,13 +584,24 @@
             const searchInput = document.getElementById('search-input');
             const productGrid = document.getElementById('product-grid');
             const noResultsMessage = document.getElementById('no-results');
-            const shareButton = document.getElementById('share-button');
+            // Antigo shareButton removido
             const currentYearSpan = document.getElementById('current-year');
             const videoModal = document.getElementById('video-modal');
             const closeModalButton = document.getElementById('close-modal');
             const modalVideoPlayer = document.getElementById('modal-video-player');
+            const headerShareWa = document.getElementById('header-share-wa');
 
             if(currentYearSpan) { currentYearSpan.textContent = new Date().getFullYear(); }
+
+            // Configuração do Novo Botão WhatsApp de Compartilhamento
+            if (headerShareWa) {
+                const shareText = "Confira os Os Melhores Suplementos Para Seu PROJETO!";
+                const shareUrl = encodeURIComponent(window.location.href);
+                const shareTextEncoded = encodeURIComponent(shareText);
+                
+                // Formata o link para abrir direto a API do WhatsApp
+                headerShareWa.href = `https://api.whatsapp.com/send?text=${shareTextEncoded}%20${shareUrl}`;
+            }
 
             function renderProducts(productsToRender) {
                 productGrid.innerHTML = '';
@@ -656,17 +683,6 @@
                 renderProducts(filteredProducts);
             });
             
-            shareButton.addEventListener('click', async () => {
-                if (navigator.share) {
-                    try {
-                        await navigator.share({ title: 'ResultadosREAL', text: 'Confira os Os Melhores Suplementos Para Seu PROJETO!', url: window.location.href });
-                    } catch (err) { console.error(err); }
-                } else {
-                    navigator.clipboard.writeText(window.location.href);
-                    alert('Link copiado!');
-                }
-            });
-
             renderProducts(products);
         });
     </script>
